@@ -1,7 +1,7 @@
 import * as express from "express";
 import { WarriorRepository } from './../databaseMethods/WarriorRepository';
 
-export function lostBattleController(repository: WarriorRepository)
+export function LostBattleController(repository: WarriorRepository)
 {
     let router = express.Router();
 
@@ -22,7 +22,9 @@ export function lostBattleController(repository: WarriorRepository)
     }
 
     router.get('/', async (req, res, next) => {
-        res.json(await repository.lostBattle.find());
+        res.json(await repository.lostBattle.find({
+            relations: ['lostBattleType']
+        }));
     });
 
     router.post('/addLostBattle', async (req, res, next) => {

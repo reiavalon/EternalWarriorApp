@@ -1,13 +1,10 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { CaptainsLog } from "./CaptainsLog";
 
 @Entity()
 export class CaptainsLogQuestion {
-    @PrimaryGeneratedColumn()
+    @PrimaryColumn()
     id: number;
-
-    @Column('int')
-    questionNumber: number;
 
     @Column()
     question: string;
